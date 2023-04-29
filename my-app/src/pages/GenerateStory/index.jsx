@@ -7,7 +7,7 @@ function GenerateStory() {
     const [isLoading, setIsLoading] = useState(false);
     const [ambiance, setAmbiance] = useState('');
     const [theme, setTheme] = useState('');
-    const [imageUrl, setImageUrl] = useState(['']);
+    const [imageUrl, setImageUrl] = useState([]);
     const [scenarioDescription, setScenarioDescription] = useState('');
     const [otherInfo, setOtherInfo] = useState('');
     const [charNames, setCharNames] = useState('');
