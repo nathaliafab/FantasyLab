@@ -39,7 +39,7 @@ FantasyLab is a web application made in React that generates characters, stories
 ## Contributors
 
 
-<table>
+<table width="100%">
   <tr>
 <td align="center"><a href="https://github.com/nathaliafab"><img src="https://avatars.githubusercontent.com/u/74332487?v=4" width="100px;" alt=""/><br /><sub><b>Nathalia Barbosa</b></sub></a><br/></td>
 
