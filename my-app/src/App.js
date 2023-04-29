@@ -9,7 +9,7 @@ function App() {
     const generateImage = async () => {
       const { Configuration, OpenAIApi } = require("openai");
       const configuration = new Configuration({
-        apiKey: "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",
+        apiKey: "",
       });
       const openai = new OpenAIApi(configuration);
       const response = await openai.createImage({
@@ -17,7 +17,10 @@ function App() {
         n: 2,
         size: '1024x1024',
       });
-      setImageUrl(Object.values(Object.values(response.data).flat()[1])[0]);
+
+      const arr = Object.entries(response.data);
+      return arr[1][1][0].url;
+
     };
     generateImage();
   }, []);
