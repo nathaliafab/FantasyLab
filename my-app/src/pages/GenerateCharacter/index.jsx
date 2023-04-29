@@ -3,18 +3,18 @@ import 'openai';
 import './index.css';
 
 function GenerateCharacter() {
+  const key = "";
   const [race, setRace] = useState('');
   const [gender, setGender] = useState('');
   const [hair, setHair] = useState('');
   const [eyes, setEyes] = useState('');
   const [rclass, setClass] = useState('');
-  const [skinColor, setSkinColor] = useState('');
   const [age, setAge] = useState('');
   const [imageUrl, setImageUrl] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
   const generatePrompt = () => {
-    return `RPG character, full body, portrait, ${race}, ${rclass}, ${gender}, ${skinColor} skin, ${hair} hair, realistic detailed ${eyes} eyes, ${age} years old, detailed face, realistic, Tolkien style, oil painting, intricate, fantasy creature, detailed, nice colors, hd, 4k, nice background, high fantasy, high quality, epic, vibrant, professional majestic oil painting by fantasy art book illustrators, volumetric lighting, dramatic, fantasy portraits, rpg portraits, full body shot, character portrait`;
+    return `portrait, detailed face, full body, ${race}, ${rclass}, ${gender}, ${hair} hair, realistic detailed ${eyes} eyes, ${age}, detailed face, face, realistic, intricate, detailed, nice colors, hd, 4k, nice background, high fantasy, high quality, epic, vibrant, professional majestic oil painting by fantasy art book illustrators, volumetric lighting, dramatic, fantasy portraits, rpg portraits, character portrait, digital art`;
   }
 
   const generateImage = async () => {
@@ -22,7 +22,7 @@ function GenerateCharacter() {
 
     const { Configuration, OpenAIApi } = require("openai");
     const configuration = new Configuration({
-      apiKey: process.env.OPENAI_API_KEY,
+      apiKey: key,
     });
 
     const openai = new OpenAIApi(configuration);
@@ -35,6 +35,7 @@ function GenerateCharacter() {
     const arr = Object.entries(response.data);
     setImageUrl([arr[1][1][0].url, arr[1][1][1].url, arr[1][1][2].url, arr[1][1][3].url]);
 
+    console.log(arr[1][1]);
     setIsLoading(false);
   };
 
@@ -63,11 +64,6 @@ function GenerateCharacter() {
       <div>
         <label>Eyes:</label>
         <input type="text" value={eyes} onChange={e => setEyes(e.target.value)} required />
-      </div>
-
-      <div>
-        <label>Skin Color:</label>
-        <input type="text" value={skinColor} onChange={e => setSkinColor(e.target.value)} required />
       </div>
 
       <div>
