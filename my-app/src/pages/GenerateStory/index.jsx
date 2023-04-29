@@ -12,6 +12,7 @@ function GenerateStory() {
     const [scenarioDescription, setScenarioDescription] = useState('');
     const [otherInfo, setOtherInfo] = useState('');
     const [charNames, setCharNames] = useState('');
+    const [apiKey, setApiKey] = useState('');
 
     const generateStoryPrompt = () => {
         let prompt = `Write a RPG story with the following ambiance: ${ambiance}, theme: ${theme}.`;
@@ -97,8 +98,12 @@ function GenerateStory() {
     }
 
     const handleSubmit = async () =>{
-       await generateText()
-       await  generateBackgroundCharacteristics()
+       if(apiKey === ''){
+        alert('Insert you API KEY!')
+       }else{
+        await generateText()
+        await  generateBackgroundCharacteristics()
+       }
     }
 
     return (
@@ -121,6 +126,11 @@ function GenerateStory() {
             <div>
                 <label>Other information:</label>
                 <input type="text" value={otherInfo} onChange={e => setOtherInfo(e.target.value)} />
+            </div>
+
+            <div>
+                <label>API Key</label>
+                <input placeholder="Your OpenAI API KEY" type="text" value={apiKey} onChange={e => setApiKey(e.target.value)} />
             </div>
 
             <button onClick={handleSubmit}>Generate Story</button>
