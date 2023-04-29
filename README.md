@@ -52,10 +52,10 @@ FantasyLab is a web application made in React that generates characters, stories
 
 ## About The Project
 
-FantasyLab is a web application made in React that generates characters, stories, and ambiance for RPG games using OpenAI's DALL-E and GPT 3.5 models.
+FantasyLab is a project developed during the [Treasure Hacks 3.5](https://treasurehacks-3-5.devpost.com/) hackathon. Our goal was to create a tool that could help RPG game masters to create characters, stories, and ambiance for their games. Our web application uses OpenAI's DALL-E and GPT 3.5 Turbo models to generate images and texts based on the user's input.
 
 ### Built With
 
 * [ ReactJS ]( https://legacy.reactjs.org/ )
-* [ ChatGPT API ]( https://platform.openai.com/docs/models )
+* [ GPT 3.5 Model ]( https://platform.openai.com/docs/models )
 * [ DALL-E Model ]( https://openai.com/research/dall-e )
