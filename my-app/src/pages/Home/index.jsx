@@ -10,8 +10,8 @@ function Home() {
                 <Link to="/character">
                     <button>Create character</button>
                 </Link>
-                <Link to="/history">
-                    <button>Create history</button>
+                <Link to="/story">
+                    <button>Create story</button>
                 </Link>
                 <Link to="/background">
                     <button>Create background</button>

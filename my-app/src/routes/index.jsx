@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import Home from "../pages/Home";
 import GenerateCharacter from "../pages/GenerateCharacter";
 import GenerateBackground from "../pages/GenerateBackground";
-import GenerateHistory from "../pages/GenerateHistory";
+import GenerateStory from "../pages/GenerateStory";
 
 const AppRoutes = () => {
     return (
@@ -10,7 +10,7 @@ const AppRoutes = () => {
             <Route path="" element={<Home />} />
             <Route path="character" element={<GenerateCharacter />} />
             <Route path="background" element={<GenerateBackground />} />
-            <Route path="history" element={<GenerateHistory />} />
+            <Route path="story" element={<GenerateStory />} />
         </Routes>
     );
 };

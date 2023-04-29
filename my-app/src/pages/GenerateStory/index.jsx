@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import 'openai';
-import './History.css';
+import './Story.css';
 
-function GenerateHistory() {
-    const [history, setHistory] = useState('');
+function GenerateStory() {
+    const [Story, setStory] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const [ambiance, setAmbiance] = useState('');
     const [theme, setTheme] = useState('');
@@ -12,11 +12,11 @@ function GenerateHistory() {
     const [otherInfo, setOtherInfo] = useState('');
     const [charNames, setCharNames] = useState('');
 
-    const generateHistoryPrompt = () => {
-        let prompt = `Write a RPG history with the following ambiance: ${ambiance}, theme: ${theme}.`;
+    const generateStoryPrompt = () => {
+        let prompt = `Write a RPG story with the following ambiance: ${ambiance}, theme: ${theme}.`;
 
         if (charNames !== '')
-            prompt += ` The history may have the following characters: ${charNames}.`;
+            prompt += ` The story may have the following characters: ${charNames}.`;
 
         if (otherInfo !== '')
             prompt += ` ${otherInfo}`;
@@ -25,7 +25,7 @@ function GenerateHistory() {
     }
 
     const generateRPGBackgroundPrompt = () =>{
-        return `Using this backstory: ${generateHistoryPrompt()},  Please visually describe the environment in a succint way, and using only commas`;
+        return `Using this backstory: ${generateStoryPrompt()},  Please visually describe the environment in a succint way, and using only commas`;
     }
 
     const generateText = async () => {  
@@ -33,13 +33,13 @@ function GenerateHistory() {
         const { Configuration, OpenAIApi } = require("openai");
 
         const configuration = new Configuration({
-            apiKey: "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",
+            apiKey: "",
         });
         const openai = new OpenAIApi(configuration);
 
         const completion = await openai.createChatCompletion({
             model: "gpt-3.5-turbo",
-            messages: [{ role: "user", content: generateHistoryPrompt() }],
+            messages: [{ role: "user", content: generateStoryPrompt() }],
             max_tokens: 1024,
         });
 
@@ -47,7 +47,7 @@ function GenerateHistory() {
         const arr = Object.entries(completion.data);
         console.log(arr[5][1][0].message.content);
 
-        setHistory(arr[5][1][0].message.content);
+        setStory(arr[5][1][0].message.content);
     };
 
     const generateImage = async () => {
@@ -55,7 +55,7 @@ function GenerateHistory() {
         console.log("dasdasdadadadadadadadasd")
         const { Configuration, OpenAIApi } = require("openai");
         const configuration = new Configuration({
-          apiKey: "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",
+          apiKey: "",
         });
     
         const openai = new OpenAIApi(configuration);
@@ -77,7 +77,7 @@ function GenerateHistory() {
         const { Configuration, OpenAIApi } = require("openai");
 
         const configuration = new Configuration({
-            apiKey: "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",
+            apiKey: "",
         });
         const openai = new OpenAIApi(configuration);
 
@@ -122,15 +122,15 @@ function GenerateHistory() {
                 <input type="text" value={otherInfo} onChange={e => setOtherInfo(e.target.value)} />
             </div>
 
-            <button onClick={handleSubmit}>Generate history</button>
+            <button onClick={handleSubmit}>Generate Story</button>
 
             <div className="text-container">
                 {isLoading ? (
                     <p>Loading...</p>
                 ) : (
                     <div>
-                        <div className="history">
-                            <p>{history}</p>
+                        <div className="Story">
+                            <p>{Story}</p>
                         </div>
                         <div className="image-container">
                             {imageUrl.map((url, index) => (
@@ -144,4 +144,4 @@ function GenerateHistory() {
     );
 }
 
-export default GenerateHistory;
+export default GenerateStory;
