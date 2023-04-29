@@ -12,17 +12,22 @@ function GenerateCharacter() {
   const [age, setAge] = useState('');
   const [imageUrl, setImageUrl] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [apiKey, setApiKey] = useState('');
 
   const generatePrompt = () => {
     return `portrait, detailed face, full body, ${race}, ${rclass}, ${gender}, ${hair} hair, realistic detailed ${eyes} eyes, ${age}, detailed face, face, realistic, intricate, detailed, nice colors, hd, 4k, nice background, high fantasy, high quality, epic, vibrant, professional majestic oil painting by fantasy art book illustrators, volumetric lighting, dramatic, fantasy portraits, rpg portraits, character portrait, digital art`;
   }
 
   const generateImage = async () => {
+    if(apiKey === ''){
+      alert('Insert you API KEY!')
+      return
+    }
     setIsLoading(true);
 
     const { Configuration, OpenAIApi } = require("openai");
     const configuration = new Configuration({
-      apiKey: key,
+      apiKey: apiKey,
     });
 
     const openai = new OpenAIApi(configuration);
@@ -69,6 +74,11 @@ function GenerateCharacter() {
       <div>
         <label>Age:</label>
         <input type="text" value={age} onChange={e => setAge(e.target.value)} required />
+      </div>
+
+      <div>
+          <label>API Key</label>
+          <input placeholder="Your OpenAI API KEY" type="text" value={apiKey} onChange={e => setApiKey(e.target.value)} />
       </div>
 
       <button onClick={generateImage}>Generate character</button>

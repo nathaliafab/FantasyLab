@@ -3,15 +3,15 @@ import 'openai';
 import './Story.css';
 
 function GenerateStory() {
-    const key = "";
     const [Story, setStory] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const [ambiance, setAmbiance] = useState('');
     const [theme, setTheme] = useState('');
-    const [imageUrl, setImageUrl] = useState(['']);
+    const [imageUrl, setImageUrl] = useState([]);
     const [scenarioDescription, setScenarioDescription] = useState('');
     const [otherInfo, setOtherInfo] = useState('');
     const [charNames, setCharNames] = useState('');
+    const [apiKey, setApiKey] = useState('');
 
     const generateStoryPrompt = () => {
         let prompt = `Write a RPG story with the following ambiance: ${ambiance}, theme: ${theme}.`;
@@ -34,7 +34,7 @@ function GenerateStory() {
         const { Configuration, OpenAIApi } = require("openai");
 
         const configuration = new Configuration({
-            apiKey: key,
+            apiKey: apiKey,
         });
         const openai = new OpenAIApi(configuration);
 
@@ -56,7 +56,7 @@ function GenerateStory() {
         console.log("dasdasdadadadadadadadasd")
         const { Configuration, OpenAIApi } = require("openai");
         const configuration = new Configuration({
-          apiKey: key,
+          apiKey: apiKey,
         });
     
         const openai = new OpenAIApi(configuration);
@@ -78,7 +78,7 @@ function GenerateStory() {
         const { Configuration, OpenAIApi } = require("openai");
 
         const configuration = new Configuration({
-            apiKey: key,
+            apiKey: apiKey,
         });
         const openai = new OpenAIApi(configuration);
 
@@ -97,8 +97,12 @@ function GenerateStory() {
     }
 
     const handleSubmit = async () =>{
-       await generateText()
-       await  generateBackgroundCharacteristics()
+       if(apiKey === ''){
+        alert('Insert you API KEY!')
+       }else{
+        await generateText()
+        await  generateBackgroundCharacteristics()
+       }
     }
 
     return (
@@ -121,6 +125,11 @@ function GenerateStory() {
             <div>
                 <label>Other information:</label>
                 <input type="text" value={otherInfo} onChange={e => setOtherInfo(e.target.value)} />
+            </div>
+
+            <div>
+                <label>API Key</label>
+                <input placeholder="Your OpenAI API KEY" type="text" value={apiKey} onChange={e => setApiKey(e.target.value)} />
             </div>
 
             <button onClick={handleSubmit}>Generate Story</button>
