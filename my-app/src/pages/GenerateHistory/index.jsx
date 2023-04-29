@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import 'openai';
+import './History.css';
 
 function GenerateHistory() {
     const [history, setHistory] = useState('');
     const [isLoading, setIsLoading] = useState(false);
+    const [ambiance, setAmbiance] = useState('');
+    const [theme, setTheme] = useState('');
 
     const generatePrompt = () => {
-        return `Write a RPG fantasy history that I can work with.`;
+        return `Write a RPG history with the following ambiance: ${ambiance}, theme: ${theme}.`;
     }
 
     const generateText = async () => {
@@ -21,6 +24,7 @@ function GenerateHistory() {
         const completion = await openai.createChatCompletion({
             model: "gpt-3.5-turbo",
             messages: [{ role: "user", content: generatePrompt() }],
+            max_tokens: 1024,
         });
 
         setIsLoading(false);
@@ -32,9 +36,28 @@ function GenerateHistory() {
 
     return (
         <div className="App">
+            <div>
+                <label>Ambiance:</label>
+                <input type="text" value={ambiance} onChange={e => setAmbiance(e.target.value)} required />
+            </div>
+
+            <div>
+                <label>Theme:</label>
+                <input type="text" value={theme} onChange={e => setTheme(e.target.value)} required />
+            </div>
+
             <button onClick={generateText}>Generate history</button>
-            {isLoading && <p>Loading...</p>}
-            {!isLoading && history && <p>{history}</p>}
+
+            <div className="text-container">
+                {isLoading ? (
+                    <p>Loading...</p>
+                ) : (
+                    <div className="history">
+                        <p>{history}</p>
+                    </div>
+                )}
+            </div>
+
         </div>
     );
 }
