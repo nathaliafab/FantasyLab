@@ -13,9 +13,6 @@ function Home() {
                 <Link to="/story">
                     <button>Create story</button>
                 </Link>
-                <Link to="/background">
-                    <button>Create background</button>
-                </Link>
             </div>
         </div>
     );
