@@ -3,7 +3,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/github_username/repo_name">
-    <img src="./my-app/public/Logo.png" alt="Logo" width="50%">
+    <img src="./my-app/public/Logo.png" alt="Logo" width="30%" height="30%">
   </a>
 
   <h3 align="center">FantasyLab</h3>
