@@ -3,7 +3,6 @@ import 'openai';
 import './Story.css';
 
 function GenerateStory() {
-    const key = "";
     const [Story, setStory] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const [ambiance, setAmbiance] = useState('');
@@ -35,7 +34,7 @@ function GenerateStory() {
         const { Configuration, OpenAIApi } = require("openai");
 
         const configuration = new Configuration({
-            apiKey: key,
+            apiKey: apiKey,
         });
         const openai = new OpenAIApi(configuration);
 
@@ -57,7 +56,7 @@ function GenerateStory() {
         console.log("dasdasdadadadadadadadasd")
         const { Configuration, OpenAIApi } = require("openai");
         const configuration = new Configuration({
-          apiKey: key,
+          apiKey: apiKey,
         });
     
         const openai = new OpenAIApi(configuration);
@@ -79,7 +78,7 @@ function GenerateStory() {
         const { Configuration, OpenAIApi } = require("openai");
 
         const configuration = new Configuration({
-            apiKey: key,
+            apiKey: apiKey,
         });
         const openai = new OpenAIApi(configuration);
 
