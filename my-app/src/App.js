@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Configuration, OpenAIApi } from 'openai';
+import 'openai';
 import './App.css';
 
 function App() {
@@ -7,8 +7,9 @@ function App() {
 
   useEffect(() => {
     const generateImage = async () => {
+      const { Configuration, OpenAIApi } = require("openai");
       const configuration = new Configuration({
-        apiKey: "",
+        apiKey: "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",
       });
       const openai = new OpenAIApi(configuration);
       const response = await openai.createImage({
@@ -16,7 +17,7 @@ function App() {
         n: 2,
         size: '1024x1024',
       });
-      setImageUrl(response.data[0].url);
+      setImageUrl(Object.values(Object.values(response.data).flat()[1])[0]);
     };
     generateImage();
   }, []);
