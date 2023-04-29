@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;500;800&display=swap');
+
 .Home {
   display: flex;
   flex-direction: column;
@@ -5,7 +7,9 @@
   justify-content: center;
   height: 100vh;
   background-color: #6c5ce7;
-  color: white;
+  color: #E49E5F;
+  background-color: #201E20;
+  font-family: 'JetBrains Mono', monospace;
 }
 
 .Home h1 {
