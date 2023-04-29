@@ -22,7 +22,7 @@ function GenerateCharacter() {
 
     const { Configuration, OpenAIApi } = require("openai");
     const configuration = new Configuration({
-      apiKey: "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",
+      apiKey: "",
     });
 
     const openai = new OpenAIApi(configuration);
@@ -75,7 +75,7 @@ function GenerateCharacter() {
         <input type="text" value={age} onChange={e => setAge(e.target.value)} required />
       </div>
 
-      <button onClick={generateImage}>Generate image</button>
+      <button onClick={generateImage}>Generate character</button>
 
       <div className="image-container">
         {isLoading ? <p>Loading...</p> :
