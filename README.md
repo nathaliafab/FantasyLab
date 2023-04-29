@@ -58,4 +58,4 @@ FantasyLab is a web application made in React that generates characters, stories
 
 * [ ReactJS ]( https://legacy.reactjs.org/ )
 * [ ChatGPT API ]( https://platform.openai.com/docs/models )
-* [ DALL-E Model ] ( https://openai.com/research/dall-e )
+* [ DALL-E Model ]( https://openai.com/research/dall-e )
