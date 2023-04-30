@@ -77,7 +77,7 @@ function GenerateCharacter() {
           <input placeholder="Insert your OpenAI API KEY..." type="text" value={apiKey} onChange={e => setApiKey(e.target.value)} />
         </div>
 
-        <div className="button-container">
+        <div className="generate">
           <button onClick={generateImage}>Generate character</button>
         </div>
 

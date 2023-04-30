@@ -1,6 +1,7 @@
 .App {
   text-align: center;
   background-color: #201E20;
+  height: auto;
 }
 
 .Data {
@@ -23,7 +24,7 @@ input[type="text"] {
   box-sizing: border-box;
 }
 
-.button-container button {
+.generate button {
   display: block;
   margin: 0 auto;
   background-color: #82B471;
@@ -36,7 +37,7 @@ input[type="text"] {
   cursor: pointer;
 }
 
-.button-container button:hover {
+.generate button:hover {
   background-color: #6a935c;
 }
 

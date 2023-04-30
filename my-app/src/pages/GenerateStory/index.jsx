@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import 'openai';
 import './Story.css';
+import Logo from '../../assets/Logo.png';
 
 function GenerateStory() {
-    const [Story, setStory] = useState('');
+    const [story, setStory] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const [ambiance, setAmbiance] = useState('');
     const [theme, setTheme] = useState('');
@@ -25,11 +26,11 @@ function GenerateStory() {
         return prompt;
     }
 
-    const generateRPGBackgroundPrompt = () =>{
+    const generateRPGBackgroundPrompt = () => {
         return `Using this backstory: ${generateStoryPrompt()},  Please visually describe the environment in a succint way, and using only commas`;
     }
 
-    const generateText = async () => {  
+    const generateText = async () => {
         setIsLoading(true);
         const { Configuration, OpenAIApi } = require("openai");
 
@@ -53,27 +54,26 @@ function GenerateStory() {
 
     const generateImage = async () => {
         setIsLoading(true);
-        console.log("dasdasdadadadadadadadasd")
         const { Configuration, OpenAIApi } = require("openai");
         const configuration = new Configuration({
-          apiKey: apiKey,
+            apiKey: apiKey,
         });
-    
+
         const openai = new OpenAIApi(configuration);
         const response = await openai.createImage({
-          prompt: `${scenarioDescription}, background, illustration, digital art, intricate, detailed, nice colors, hd, 4k, high quality, epic, vibrant, professional majestic painting by art book illustrators, volumetric lighting, dramatic, art`,
-          n: 4,
-          size: '1024x1024',
+            prompt: `${scenarioDescription}, background, illustration, digital art, intricate, detailed, nice colors, hd, 4k, high quality, epic, vibrant, professional majestic painting by art book illustrators, volumetric lighting, dramatic, art`,
+            n: 4,
+            size: '1024x1024',
         });
         console.log(response.data)
         const arr = Object.entries(response.data);
         setImageUrl([arr[1][1][0].url, arr[1][1][1].url, arr[1][1][2].url, arr[1][1][3].url]);
         console.log(imageUrl)
         setIsLoading(false);
-      };
+    };
 
 
-    const generateBackgroundCharacteristics = async () =>{
+    const generateBackgroundCharacteristics = async () => {
         setIsLoading(true);
         const { Configuration, OpenAIApi } = require("openai");
 
@@ -96,59 +96,60 @@ function GenerateStory() {
         await generateImage();
     }
 
-    const handleSubmit = async () =>{
-       if(apiKey === ''){
-        alert('Insert you API KEY!')
-       }else{
-        await generateText()
-        await  generateBackgroundCharacteristics()
-       }
+    const handleSubmit = async () => {
+        if (apiKey === '') {
+            alert('Insert you API KEY!')
+        } else {
+            await generateText()
+            await generateBackgroundCharacteristics()
+        }
     }
 
     return (
         <div className="App">
-            <div>
-                <label>Ambiance:</label>
-                <input type="text" value={ambiance} onChange={e => setAmbiance(e.target.value)} required />
-            </div>
+            <div className="Data">
+                <img src={Logo} className="logo" />
 
-            <div>
-                <label>Theme:</label>
-                <input type="text" value={theme} onChange={e => setTheme(e.target.value)} required />
-            </div>
-
-            <div>
-                <label>Character names (separate by commas):</label>
-                <input type="text" value={charNames} onChange={e => setCharNames(e.target.value)} />
-            </div>
-
-            <div>
-                <label>Other information:</label>
-                <input type="text" value={otherInfo} onChange={e => setOtherInfo(e.target.value)} />
-            </div>
-
-            <div>
-                <label>API Key</label>
-                <input placeholder="Your OpenAI API KEY" type="text" value={apiKey} onChange={e => setApiKey(e.target.value)} />
-            </div>
-
-            <button onClick={handleSubmit}>Generate Story</button>
-
-            <div className="text-container">
-                {isLoading ? (
-                    <p>Loading...</p>
-                ) : (
-                    <div>
-                        <div className="Story">
-                            <p>{Story}</p>
-                        </div>
-                        <div className="image-container">
-                            {imageUrl.map((url, index) => (
-                                <img src={url} className="generated-img" alt={`generated-img-${index}`} />
-                        ))};
-                    </div>
+                <div>
+                    <input placeholder="Describe the ambiance..." type="text" value={ambiance} onChange={e => setAmbiance(e.target.value)} required />
                 </div>
-                )}
+
+                <div>
+                    <input placeholder="Insert the main theme..." type="text" value={theme} onChange={e => setTheme(e.target.value)} required />
+                </div>
+
+                <div>
+                    <input placeholder="Insert any character names..." type="text" value={charNames} onChange={e => setCharNames(e.target.value)} />
+                </div>
+
+                <div>
+                    <input placeholder="Insert any other information..." type="text" value={otherInfo} onChange={e => setOtherInfo(e.target.value)} />
+                </div>
+
+                <div>
+                    <input placeholder="Insert your OpenAI API KEY..." type="text" value={apiKey} onChange={e => setApiKey(e.target.value)} />
+                </div>
+
+                <div className="generate">
+                    <button onClick={handleSubmit}>Generate story</button>
+                </div>
+
+                <div className="text-container">
+                    {isLoading ? (
+                        <p>Loading...</p>
+                    ) : (
+                        <div>
+                            <div className="story">
+                                <p>{story}</p>
+                            </div>
+                            <div className="image-container">
+                                {imageUrl.map((url, index) => (
+                                    <img src={url} className="generated-img" alt={`generated-img-${index}`} />
+                                ))};
+                            </div>
+                        </div>
+                    )}
+                </div>
             </div>
         </div>
     );
