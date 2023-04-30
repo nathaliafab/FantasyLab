@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import 'openai';
 import './index.css';
 import Logo from '../../assets/Logo.png';
+import { Navigate, useNavigate } from "react-router-dom";
 
 function GenerateCharacter() {
   const [race, setRace] = useState('');
@@ -13,6 +14,7 @@ function GenerateCharacter() {
   const [imageUrl, setImageUrl] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [apiKey, setApiKey] = useState('');
+  const navigate = useNavigate()
 
   const generatePrompt = () => {
     return `portrait, detailed face, full body, ${race}, ${rclass}, ${gender}, ${hair} hair, realistic detailed ${eyes} eyes, ${age}, detailed face, face, realistic, intricate, detailed, nice colors, hd, 4k, nice background, high fantasy, high quality, epic, vibrant, professional majestic oil painting by fantasy art book illustrators, volumetric lighting, dramatic, fantasy portraits, rpg portraits, character portrait, digital art`;
@@ -44,10 +46,15 @@ function GenerateCharacter() {
     setIsLoading(false);
   };
 
+  const goToHomePage = () =>{
+    console.log("asdadasdas")
+    navigate("/");
+  }
   return (
     <div className="App">
       <div className="Data">
-        <img src={Logo} className="logo" />
+      
+        <img src={Logo} onClick={goToHomePage} className="logo" />
 
         <div>
           <input placeholder="Insert race..." type="text" value={race} onChange={e => setRace(e.target.value)} required />
