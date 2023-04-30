@@ -134,7 +134,8 @@ function GenerateStory() {
                     <button onClick={handleSubmit}>Generate story</button>
                 </div>
 
-                <div className="text-container">
+                {
+                    (story !== '' || isLoading) ?  <div className="text-container">
                     {isLoading ? (
                         <p className="loading" >Loading...</p>
                     ) : (
@@ -149,7 +150,8 @@ function GenerateStory() {
                             </div>
                         </div>
                     )}
-                </div>
+                </div> : <div></div>
+                }
             </div>
         </div>
     );
