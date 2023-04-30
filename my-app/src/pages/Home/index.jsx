@@ -15,10 +15,10 @@ function Home() {
             </div>
             <div className="button-container">
                 <Link to="/character">
-                    <button className="homeButton"><img src={createStory} /></button>
+                    <button className="homeButton"><img src={createCharacter} /></button>
                 </Link>
                 <Link to="/story">
-                    <button className="homeButton"><img src={createCharacter} /></button>
+                    <button className="homeButton"><img src={createStory} /></button>
                 </Link>
             </div>
         </div>
