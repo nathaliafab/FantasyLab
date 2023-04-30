@@ -1,22 +1,32 @@
 .App {
+  text-align: center;
+  background-color: #201E20;
+}
+
+.Data {
   max-width: 840px;
   margin: 0 auto;
   padding: 20px;
+}
+
+.logo {
+  width: 30%;
+  margin-bottom: 20px;
 }
 
 input[type="text"] {
   width: 100%;
   padding: 8px;
   margin: 10px 0;
-  border: 1px solid #ccc;
+  border: 1px solid #D6B998;
   border-radius: 4px;
   box-sizing: border-box;
 }
 
-button {
+.button-container button {
   display: block;
   margin: 0 auto;
-  background-color: #7B42F5;
+  background-color: #82B471;
   color: white;
   font-size: 1.5rem;
   text-transform: uppercase;
@@ -26,8 +36,8 @@ button {
   cursor: pointer;
 }
 
-button:hover {
-  background-color: #5D28C9;
+.button-container button:hover {
+  background-color: #6a935c;
 }
 
 .image-container {

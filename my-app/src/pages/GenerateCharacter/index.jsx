@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import 'openai';
 import './index.css';
+import Logo from '../../assets/Logo.png';
 
 function GenerateCharacter() {
-  const key = "";
   const [race, setRace] = useState('');
   const [gender, setGender] = useState('');
   const [hair, setHair] = useState('');
@@ -19,7 +19,7 @@ function GenerateCharacter() {
   }
 
   const generateImage = async () => {
-    if(apiKey === ''){
+    if (apiKey === '') {
       alert('Insert you API KEY!')
       return
     }
@@ -46,48 +46,47 @@ function GenerateCharacter() {
 
   return (
     <div className="App">
-      <div>
-        <label>Race:</label>
-        <input type="text" value={race} onChange={e => setRace(e.target.value)} required />
-      </div>
+      <div className="Data">
+        <img src={Logo} className="logo" />
 
-      <div>
-        <label>Class:</label>
-        <input type="text" value={rclass} onChange={e => setClass(e.target.value)} required />
-      </div>
+        <div>
+          <input placeholder="Insert race..." type="text" value={race} onChange={e => setRace(e.target.value)} required />
+        </div>
 
-      <div>
-        <label>Gender:</label>
-        <input type="text" value={gender} onChange={e => setGender(e.target.value)} required />
-      </div>
+        <div>
+          <input placeholder="Insert class..." type="text" value={rclass} onChange={e => setClass(e.target.value)} required />
+        </div>
 
-      <div>
-        <label>Hair:</label>
-        <input type="text" value={hair} onChange={e => setHair(e.target.value)} required />
-      </div>
+        <div>
+          <input placeholder="Insert gender..." type="text" value={gender} onChange={e => setGender(e.target.value)} required />
+        </div>
 
-      <div>
-        <label>Eyes:</label>
-        <input type="text" value={eyes} onChange={e => setEyes(e.target.value)} required />
-      </div>
+        <div>
+          <input placeholder="Insert hair characteristics..." type="text" value={hair} onChange={e => setHair(e.target.value)} required />
+        </div>
 
-      <div>
-        <label>Age:</label>
-        <input type="text" value={age} onChange={e => setAge(e.target.value)} required />
-      </div>
+        <div>
+          <input placeholder="Insert eye characteristics..." type="text" value={eyes} onChange={e => setEyes(e.target.value)} required />
+        </div>
 
-      <div>
-          <label>API Key</label>
-          <input placeholder="Your OpenAI API KEY" type="text" value={apiKey} onChange={e => setApiKey(e.target.value)} />
-      </div>
+        <div>
+          <input placeholder="Insert age..." type="text" value={age} onChange={e => setAge(e.target.value)} required />
+        </div>
 
-      <button onClick={generateImage}>Generate character</button>
+        <div>
+          <input placeholder="Insert your OpenAI API KEY..." type="text" value={apiKey} onChange={e => setApiKey(e.target.value)} />
+        </div>
 
-      <div className="image-container">
-        {isLoading ? <p>Loading...</p> :
-          imageUrl.map((url, index) => (
-            <img src={url} className="generated-img" alt={`generated-img-${index}`} />
-          ))}
+        <div className="button-container">
+          <button onClick={generateImage}>Generate character</button>
+        </div>
+
+        <div className="image-container">
+          {isLoading ? <p>Loading...</p> :
+            imageUrl.map((url, index) => (
+              <img src={url} className="generated-img" alt={`generated-img-${index}`} />
+            ))}
+        </div>
       </div>
     </div>
   );
