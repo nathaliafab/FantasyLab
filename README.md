@@ -2,7 +2,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/github_username/repo_name">
+  <a href="https://github.com/nathaliafab/FantasyLab">
     <img src="./my-app/public/Logo.png" alt="Logo" width="30%" height="30%">
   </a>
 
@@ -11,13 +11,13 @@
   <p align="center">
 FantasyLab is a web application made in React that generates characters, stories, and ambiance for RPG games using OpenAI's DALL-E and GPT 3.5 models.
     <br />
-    <a href="https://github.com/nathaliafab/treasure-hacks-3.5"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/nathaliafab/FantasyLab"><strong>Explore the docs »</strong></a>
     <br />
     <br />
     ·
-    <a href="https://github.com/nathaliafab/treasure-hacks-3.5/issues">Report Bug</a>
+    <a href="https://github.com/nathaliafab/FantasyLab/issues">Report Bug</a>
     ·
-    <a href="https://github.com/nathaliafab/treasure-hacks-3.5/issues">Request Feature</a>
+    <a href="https://github.com/nathaliafab/FantasyLab/issues">Request Feature</a>
   </p>
 </p>
 
@@ -52,7 +52,7 @@ FantasyLab is a web application made in React that generates characters, stories
 
 ## About The Project
 
-FantasyLab is a project developed during the [Treasure Hacks 3.5](https://treasurehacks-3-5.devpost.com/) hackathon. Our goal was to create a tool that could help RPG game masters to create characters, stories, and ambiance for their games. Our web application uses OpenAI's DALL-E and GPT 3.5 Turbo models to generate images and texts based on the user's input.
+[FantasyLab](https://devpost.com/software/fantasylab) is a project developed during the [Treasure Hacks 3.5](https://treasurehacks-3-5.devpost.com/) hackathon. Our goal was to create a tool that could help RPG game masters to create characters, stories, and ambiance for their games. Our web application uses OpenAI's DALL-E and GPT 3.5 Turbo models to generate images and texts based on the user's input.
 
 ### Built With
 
