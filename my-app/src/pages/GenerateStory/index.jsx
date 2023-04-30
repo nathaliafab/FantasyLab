@@ -53,7 +53,6 @@ function GenerateStory() {
 
     const generateImage = async () => {
         setIsLoading(true);
-        console.log("dasdasdadadadadadadadasd")
         const { Configuration, OpenAIApi } = require("openai");
         const configuration = new Configuration({
           apiKey: apiKey,
