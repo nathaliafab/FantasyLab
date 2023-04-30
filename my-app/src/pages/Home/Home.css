@@ -6,10 +6,32 @@
   align-items: center;
   justify-content: center;
   height: 100vh;
+  width: 100vw;
   background-color: #6c5ce7;
   color: #E49E5F;
   background-color: #201E20;
   font-family: 'JetBrains Mono', monospace;
+  font-size: 128;
+}
+
+.home-top-section{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-top-section img{
+  width: 100px;
+  height: 100px;
+}
+
+.home-top-section h3{
+  padding-left: 400px;
+  padding-right: 400px;
+  font-size: 24px;
+  text-align: center;
+  color: #FFFFFF;
 }
 
 .Home h1 {
@@ -28,19 +50,21 @@
 }
 
 .button-container button {
-  background-color: #a29bfe;
-  color: white;
-  padding: 1.5rem 3rem;
   border: none;
-  border-radius: 4px;
   cursor: pointer;
   font-size: 1.6rem;
   font-weight: bold;
   transition: background-color 0.3s ease-in-out;
   text-transform: uppercase;
   letter-spacing: 2px;
+  background-color: #201E20;
 }
 
-.button-container button:hover {
-  background-color: #6c5ce7;
+.button-container img{
+  padding: 0;
+  margin: 0;
+}
+
+.button-container button:hover{
+  background-color: #E49E5F;
 }
