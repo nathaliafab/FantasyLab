@@ -136,7 +136,7 @@ function GenerateStory() {
 
                 <div className="text-container">
                     {isLoading ? (
-                        <p>Loading...</p>
+                        <p className="loading" >Loading...</p>
                     ) : (
                         <div>
                             <div className="story">

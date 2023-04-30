@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;500;800&display=swap');
+
 .App {
   text-align: center;
   background-color: #201E20;
@@ -51,4 +53,11 @@ input[type="text"] {
 .generated-img {
   width: 400px;
   margin-bottom: 20px;
+}
+
+.loading{
+  font-family: 'JetBrains Mono', monospace;
+  color: white;
+  font-size: 1rem;
+  text-align: center;
 }

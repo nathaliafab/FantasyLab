@@ -82,7 +82,7 @@ function GenerateCharacter() {
         </div>
 
         <div className="image-container">
-          {isLoading ? <p>Loading...</p> :
+          {isLoading ? <p className="loading">Loading...</p> :
             imageUrl.map((url, index) => (
               <img src={url} className="generated-img" alt={`generated-img-${index}`} />
             ))}
