@@ -145,7 +145,7 @@ function GenerateStory() {
                             <div className="image-container">
                                 {imageUrl.map((url, index) => (
                                     <img src={url} className="generated-img" alt={`generated-img-${index}`} />
-                                ))};
+                                ))}
                             </div>
                         </div>
                     )}
