@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import 'openai';
 import './Story.css';
 import Logo from '../../assets/Logo.png';
+import { useNavigate } from "react-router-dom";
 
 function GenerateStory() {
     const [story, setStory] = useState('');
@@ -13,7 +14,8 @@ function GenerateStory() {
     const [otherInfo, setOtherInfo] = useState('');
     const [charNames, setCharNames] = useState('');
     const [apiKey, setApiKey] = useState('');
-
+    const navigate = useNavigate();
+    
     const generateStoryPrompt = () => {
         let prompt = `Write a RPG story with the following ambiance: ${ambiance}, theme: ${theme}.`;
 
@@ -105,10 +107,15 @@ function GenerateStory() {
         }
     }
 
+    const goToHomePage = () =>{
+        console.log("asdadasdas")
+        navigate("/");
+      }
+
     return (
         <div className="App">
             <div className="Data">
-                <img src={Logo} className="logo" />
+                <img src={Logo} onClick={goToHomePage} className="logo" />
 
                 <div>
                     <input placeholder="Describe the ambiance..." type="text" value={ambiance} onChange={e => setAmbiance(e.target.value)} required />
