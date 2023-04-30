@@ -78,7 +78,7 @@ function GenerateCharacter() {
         </div>
 
         <div className="button-container">
-          <button onClick={generateImage}>Generate character</button>
+          <button className="generate-character" onClick={generateImage}>Generate character</button>
         </div>
 
         <div className="image-container">
