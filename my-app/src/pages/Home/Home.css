@@ -5,13 +5,13 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
-  width: 100vw;
+  max-width: 100vw;
+  min-height: 100vh;
   background-color: #6c5ce7;
   color: #E49E5F;
   background-color: #201E20;
   font-family: 'JetBrains Mono', monospace;
-  font-size: 128;
+  font-size: 3rem;
 }
 
 .home-top-section{
@@ -27,16 +27,14 @@
 }
 
 .home-top-section h3{
-  padding-left: 400px;
-  padding-right: 400px;
-  font-size: 24px;
+  font-size: 1.25rem;  
   text-align: center;
   color: #FFFFFF;
 }
 
 .Home h1 {
-  font-size: 6rem;
-  margin-bottom: 2rem;
+  font-size: 5rem;
+  margin-bottom: 1rem;
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
 
@@ -46,7 +44,13 @@
   align-items: center;
   justify-content: center;
   gap: 2rem;
-  margin-top: 4rem;
+  margin-top: 1rem;
+  max-width: 100vw;
+  min-width: 100vw;
+}
+
+.button-container img{
+  width: 90vw;
 }
 
 .button-container button {
