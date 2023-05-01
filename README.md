@@ -63,17 +63,13 @@ FantasyLab is a web application made in React that generates characters, stories
 * [ DALL-E Model ]( https://openai.com/research/dall-e )
 
 ## Screenshots
-| Home page | Generate character page |  
-|:---------:|:-----------------------:|
-![](/my-app/public/screenshots/home-page.png)  |  ![](/my-app/public/screenshots/gen-char-page.png)  |
-
-| Generated character #1 | Generated character #2 |  
-|:---------:|:-----------------------:|
-![](/my-app/public/screenshots/gen-char-page1.png)  |  ![](/my-app/public/screenshots/gen-char-page2.png)  |
-
-| Generate story page | Generated story |  
-|:---------:|:-----------------------:|
-![](/my-app/public/screenshots/gen-story-page.png)  |  ![](/my-app/public/screenshots/gen-story-page1.png)  |
+| Home page                    | Generate character page           |
+|:----------------------------:|:---------------------------------:|
+| ![](/my-app/public/screenshots/home-page.png)        | ![](/my-app/public/screenshots/gen-char-page.png)       |
+| Generated character #1       | Generated character #2            |
+| ![](/my-app/public/screenshots/gen-char-page1.png)   | ![](/my-app/public/screenshots/gen-char-page2.png)      |
+| Generate story page          | Generated story                   |
+| ![](/my-app/public/screenshots/gen-story-page.png)   | ![](/my-app/public/screenshots/gen-story-page1.png)     |
 
 ## Project Score: 61.75
 | Judge | Score | Comments |
